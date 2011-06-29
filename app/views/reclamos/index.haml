@@ -1,0 +1,43 @@
+#main
+  .title
+    %h1 No al Canon Digital en Argentina
+  .intro
+    %p
+      Todos nos enteramos que El día 28 de Junio del 2011 una comisión del Senado de la Nación trato el proyecto de ley para imponer el canon en la Argentina. Esto significa que muchos productos tecnológicos van a tener un costo mayor el cual sera distribuido entre los propietarios de copyright.
+
+    %p
+      = link_to "Manolo12", "http://www.taringa.net/perfil/manolo12"
+      propone enviar un mail a los senadores diciendoles no al Canon Digital.
+
+    %p
+      Yo hice esta aplicación que sólo envia el mail que propone Manolo12 en su post, y lo envia a toda la lista de senadores.
+      %br
+      El código de la aplicación esta en github, y cualquiera que ayude con un diseño es bienvenido.
+
+  %h2 Links de interes
+  .links
+    %ul
+      %li= link_to "Post original en Taringa por Manolo12.", "http://www.taringa.net/posts/offtopic/11350839/Ayuda-para-evitar-el-canon-digital-en-Argentina.html"
+      %li= link_to "Comisión del Senado de la Nación", "http://www.senado.gov.ar/web/comisiones/reuComi.php?nro_comision=53"
+      %li= link_to "Proyecto de ley", "http://www.rogerbits.com/wp-content/uploads/2011/06/Proyecto_copia_privada3732s10picheto.pdf"
+      %li= link_to "Más información", "http://partido-pirata.blogspot.com/2011/06/el-canon-digital-hoy-en-el-senado.html"
+      %li= link_to "Aplicación en github", "#"
+
+  %br
+  %h2 Ingresá estos datos para poder enviarles un mail
+  .form
+    #errors
+      = @errors
+    #notice
+      = @notice
+    = form_tag('/reclamos/email') do |f|
+      .div{:style => "margin-bottom: 10px;"}
+        %p{:style => "widht: 100px; margin-bottom: 3px;"}
+          Nombre (para la firma)
+        %input.text{:type => "text", :name => "sender"}
+      .div
+        %p{:style => "widht: 150px; margin-bottom: 3px;"}
+          Email
+        %input.text{:type => "email", :name => "email"}
+      %br
+      =submit_tag 'Enviar'
